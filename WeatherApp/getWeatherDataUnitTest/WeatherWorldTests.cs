@@ -17,10 +17,14 @@ namespace WeatherApp.Tests
         [TestMethod()]
         public void getWeatherDataTest()
         {
-            Location location = new Location("Paris");
+            Location location = new Location("Paris, France");
             WeatherWorld wd = WeatherWorld.Instance();
-            Location actual = wd.getWeatherData(location).Location;
-            Assert.AreEqual(location.Country, actual.Country);
+           string actual = wd.getWeatherData(location).Location.Country;
+
+            
+
+
+            Assert.AreEqual(location.Country, actual);
             Assert.Inconclusive("Not Equal\n");
         }
 
