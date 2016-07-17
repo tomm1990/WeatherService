@@ -10,10 +10,11 @@ namespace WeatherApp
     {
         static void Main(string[] args)
         {
-            IWeatherDataService service = WeatherDataServiceFactory.getWeatherDataService(WeatherDataServiceFactory.OPEN_WEATHER_MAP);
-            WeatherData wd = service.getWeatherData(new Location("Paris"));
-
-
+            IWeatherDataService service = WeatherDataServiceFactory.getWeatherDataService(WeatherDataServiceFactory.WORLD_WEATHER_ONLINE);
+            WeatherData wd = service.getWeatherData(new Location("London"));
+            wd.Start();
+            Console.ReadKey();
+            
         }
     }
 }
