@@ -15,7 +15,7 @@ namespace WeatherApp
             WeatherData weatherData = new WeatherData();
             if (data.Equals(OPEN_WEATHER_MAP))
             {
-                return WeatherMap.instance();
+                return WeatherMap.Instance();
             }
             //else if (data.Equals(WORLD_WEATHER_ONLINE))
             //{
