@@ -69,8 +69,6 @@ namespace WeatherApp
                 wd.Location.Temperature = (string)o["data"]["current_condition"][0]["temp_C"];
                 wd.Location.Humidity = (string)o["data"]["current_condition"][0]["humidity"];
                 wd.Location.Wind = (string)o["data"]["current_condition"][0]["windspeedKmph"];
-
-
             }
             catch (Exception e) { };
         }
