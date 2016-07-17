@@ -12,9 +12,9 @@ namespace WeatherApp
 {
     public class WeatherWorld : WeatherData, IWeatherDataService
     {
-
         private const String key = "7f41c073c67a4bdbac785947161707";
         private static WeatherWorld weatherWorld;
+
         private WeatherWorld() : base() { }
 
         public static WeatherWorld Instance()
@@ -33,29 +33,29 @@ namespace WeatherApp
             try
             {
                 wd.Location.Country = location.Country;
-                XMLFunction(wd, location);
+                JsonFunction(wd, location);
             }
             catch (WeatherDataServiceException ex)
             {
-                //Console.WriteLine(ex.Message);
+
             }
             return wd;
         }
 
-        public void XMLFunction(WeatherWorld wd, Location location)
+        public void JsonFunction(WeatherWorld wd, Location location)
         {
-            String URLString = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=" +
-                        key + "&q=" + location.Country + "&num_of_days=1&tp=24&format=xml";
+            //String URLString = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=" +
+            //            key + "&q=" + location.Country + "&num_of_days=1&tp=24&format=xml";
             String URLStringjson = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=" +
                        key + "&q=" + location.Country + "&num_of_days=1&tp=24&format=json";
 
-            string xml;
+            //string xml;
             string json;
             using (WebClient client = new WebClient())
             {
                 try
                 {
-                    xml = client.DownloadString(URLString);// xml url to string
+                    //xml = client.DownloadString(URLString);// xml url to string
                     json = @client.DownloadString(URLStringjson);
                 }
                 catch (WebException)
@@ -67,7 +67,7 @@ namespace WeatherApp
             try
             {
                 JObject o = JObject.Parse(json);
-                XDocument ob = XDocument.Parse(xml);
+                //XDocument ob = XDocument.Parse(xml);
 
                 wd.Location.Country = (string)o["data"]["request"][0]["query"];
                 wd.Location.Sunrise = (string)o["data"]["weather"][0]["astronomy"][0]["sunrise"];

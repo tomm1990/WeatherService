@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
+using System.Xml.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace WeatherApp.Tests
 {
@@ -15,7 +18,12 @@ namespace WeatherApp.Tests
         public void getWeatherDataTest()
         {
             Location location = new Location("Paris");
-            Assert.Fail();
+            WeatherWorld wd = WeatherWorld.Instance();
+            Location actual = wd.getWeatherData(location).Location;
+            Assert.AreEqual(location.Country, actual.Country);
+            Assert.Inconclusive("Not Equal\n");
         }
+
+        
     }
 }

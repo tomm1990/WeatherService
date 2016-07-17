@@ -6,15 +6,9 @@ using System.Threading.Tasks;
 
 namespace WeatherApp
 {
-    //should be implemented as singleton
-    public class WeatherData : IWeatherDataService
-    {
+    public class WeatherData : IWeatherDataService{
 
         private Location location;
-
-        public WeatherData() {
-            this.Location = new Location();
-        }
 
         public Location Location
         {
@@ -29,6 +23,12 @@ namespace WeatherApp
             }
         }
 
+
+        public WeatherData() {
+            this.location = new Location();
+        }
+
+
         virtual public WeatherData getWeatherData(Location location)
         {
             throw new NotImplementedException();
@@ -38,7 +38,7 @@ namespace WeatherApp
 
         public void Start()
         {
-            
+          
                 Console.WriteLine(
                    "The weather of " + Location.Country + " is:\n" +
                    "SunRise is: " + Location.Sunrise + "\n" +
