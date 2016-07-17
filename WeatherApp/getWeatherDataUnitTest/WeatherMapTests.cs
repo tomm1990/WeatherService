@@ -14,7 +14,10 @@ namespace WeatherApp.Tests
         [TestMethod()]
         public void getWeatherDataTest()
         {
-            Assert.Fail();
+            Location location = new Location("West Jerusalem");
+            WeatherMap wd = WeatherMap.Instance();
+            WeatherData actual = wd.getWeatherData(location);
+            Assert.AreEqual(location.Country, actual.Location.Country);
         }
     }
 }
