@@ -12,7 +12,6 @@ namespace WeatherApp
     // singleton WeatherMap object
     public class WeatherMap : WeatherData , IWeatherDataService
     {
-        //private Location location;
         private static WeatherMap weatherMap;
         private WeatherMap() : base() { }
 
@@ -43,14 +42,13 @@ namespace WeatherApp
 
         public void XMLFunction(WeatherMap wd, Location location)
         {
-            //String URLString = "http://api.openweathermap.org/data/2.5/weather?q=" + location.Country + "&mode=xml";
             String URLString = "http://api.openweathermap.org/data/2.5/weather?q=" + location.Country + "&mode=xml&appid=" + "046bf0944893aecfb599b36875c0a1d8";
             String xml;
             using (WebClient client = new WebClient())
             {
                 try
                 {
-                    xml = client.DownloadString(URLString);  // xml url to string
+                    xml = client.DownloadString(URLString); 
                 }
                 catch (WebException)
                 {
@@ -61,7 +59,6 @@ namespace WeatherApp
             {
                 
                 XDocument ob = XDocument.Parse(xml);
-                //A linq to xml that get all the values from the site
                 var weather = from x in ob.Descendants("current")
                               select new
                               {
@@ -100,9 +97,6 @@ namespace WeatherApp
                 throw new WeatherDataServiceException("There is not internet connection");
             }
         }
-
-
-
-
+        
     }
 }

@@ -11,7 +11,7 @@ namespace WeatherApp
         static void Main(string[] args)
         {
             IWeatherDataService service = WeatherDataServiceFactory.getWeatherDataService(WeatherDataServiceFactory.WORLD_WEATHER_ONLINE);
-            WeatherData wd = service.getWeatherData(new Location("Paris"));
+            WeatherData wd = service.getWeatherData(new Location("London"));
             wd.Start();
             Console.ReadKey();
             

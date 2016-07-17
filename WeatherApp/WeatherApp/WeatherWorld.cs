@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,8 +12,8 @@ namespace WeatherApp
 {
     public class WeatherWorld : WeatherData, IWeatherDataService
     {
+
         private const String key = "7f41c073c67a4bdbac785947161707";
-        //private Location location;
         private static WeatherWorld weatherWorld;
         private WeatherWorld() : base() { }
 
@@ -45,12 +46,17 @@ namespace WeatherApp
         {
             String URLString = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=" +
                         key + "&q=" + location.Country + "&num_of_days=1&tp=24&format=xml";
+            String URLStringjson = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=" +
+                       key + "&q=" + location.Country + "&num_of_days=1&tp=24&format=json";
+
             string xml;
+            string json;
             using (WebClient client = new WebClient())
             {
                 try
                 {
                     xml = client.DownloadString(URLString);// xml url to string
+                    json = client.DownloadString(URLStringjson);
                 }
                 catch (WebException)
                 {
@@ -60,6 +66,7 @@ namespace WeatherApp
             }
             try
             {
+                JObject o = JObject.Parse(json);
                 XDocument ob = XDocument.Parse(xml);
                 //A linq to xml that get all the values from the site
                 var weather = from x in ob.Descendants("data")
