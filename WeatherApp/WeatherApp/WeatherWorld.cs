@@ -14,11 +14,10 @@ namespace WeatherApp
     {
         private const String key = "7f41c073c67a4bdbac785947161707";
         private static WeatherWorld weatherWorld;
-
         private WeatherWorld() : base() { }
-
         public static WeatherWorld Instance()
         {
+            
             if (weatherWorld == null)
             {
                 weatherWorld = new WeatherWorld();

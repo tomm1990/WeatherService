@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 namespace WeatherApp{
     class Program{
         static void Main(string[] args){
-            IWeatherDataService service = WeatherDataServiceFactory.getWeatherDataService(
-                WeatherDataServiceFactory.WORLD_WEATHER_ONLINE);
-            WeatherData wd = service.getWeatherData(  new Location("Paris")   );
-            wd.Start();
+            //IWeatherDataService service = WeatherDataServiceFactory.getWeatherDataService(
+            //    WeatherDataServiceFactory.WORLD_WEATHER_ONLINE);
+            //WeatherData wd = service.getWeatherData(new Location("Paris, France"));
+
+ 
+
+            //wd.Start();
             Console.ReadKey();
         }
     }
