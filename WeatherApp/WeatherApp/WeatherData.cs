@@ -38,7 +38,17 @@ namespace WeatherApp
 
         public void Start()
         {
-            Console.WriteLine("test");
+            
+                Console.WriteLine(
+                   "The weather of " + Location.Country + " is:\n" +
+                   "SunRise is: " + Location.Sunrise + "\n" +
+                   "SunSet is: " + Location.Sunset + "\n" +
+                   "Temperature is: " + Location.Temperature + " Celsius\n" +
+                   "Humidity is: " +Location.Humidity + "\n" +
+                   "Wind Speed is: " + Location.Wind + " \n" +
+                   "Clouds is: " + Location.Cloud + "\n" +
+                   "Last update for this weather is: " + Location.Lastupdate);
+            
         }
     }
 }
