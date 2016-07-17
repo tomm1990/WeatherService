@@ -51,6 +51,7 @@
     <Compile Include="WeatherDataServiceException.cs" />
     <Compile Include="WeatherDataServiceFactory.cs" />
     <Compile Include="WeatherMap.cs" />
+    <Compile Include="WeatherWorld.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -9,25 +9,25 @@ using System.Xml.Linq;
 
 namespace WeatherApp
 {
-    // singleton WeatherMap object
-    public class WeatherMap : WeatherData , IWeatherDataService
+    public class WeatherWorld : WeatherData, IWeatherDataService
     {
+        private const String key = "7f41c073c67a4bdbac785947161707";
         //private Location location;
-        private static WeatherMap weatherMap;
-        private WeatherMap() : base() { }
+        private static WeatherWorld weatherWorld;
+        private WeatherWorld() : base() { }
 
-        public static WeatherMap Instance()
+        public static WeatherWorld Instance()
         {
-            if (weatherMap==null)
+            if (weatherWorld == null)
             {
-                weatherMap = new WeatherMap();
+                weatherWorld = new WeatherWorld();
             }
-            return weatherMap;
+            return weatherWorld;
         }
 
         public override WeatherData getWeatherData(Location location)
         {
-            WeatherMap wd = new WeatherMap();
+            WeatherWorld wd = new WeatherWorld();
 
             try
             {
@@ -41,46 +41,52 @@ namespace WeatherApp
             return wd;
         }
 
-        public void XMLFunction(WeatherMap wd, Location location)
+        public void XMLFunction(WeatherWorld wd, Location location)
         {
-            //String URLString = "http://api.openweathermap.org/data/2.5/weather?q=" + location.Country + "&mode=xml";
-            String URLString = "http://api.openweathermap.org/data/2.5/weather?q=" + location.Country + "&mode=xml&appid=" + "046bf0944893aecfb599b36875c0a1d8";
-            String xml;
+            String URLString = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=" +
+                        key + "&q=" + location.Country + "&num_of_days=1&tp=24&format=xml";
+            string xml;
             using (WebClient client = new WebClient())
             {
                 try
                 {
-                    xml = client.DownloadString(URLString);  // xml url to string
+                    xml = client.DownloadString(URLString);// xml url to string
                 }
                 catch (WebException)
                 {
                     throw new WeatherDataServiceException("There is not internet connection");
                 }
+
             }
             try
             {
-                
                 XDocument ob = XDocument.Parse(xml);
                 //A linq to xml that get all the values from the site
-                var weather = from x in ob.Descendants("current")
+                var weather = from x in ob.Descendants("data")
                               select new
                               {
-                                  City = x.Descendants("city").Attributes("name").First().Value,
-                                  Sun = x.Descendants("sun").Attributes("rise").First().Value,
-                                  Set = x.Descendants("sun").Attributes("set").First().Value,
-                                  Tempat = x.Descendants("temperature").Attributes("value").First().Value,
-                                  Cloud = x.Descendants("clouds").Attributes("name").First().Value,
-                                  Humidity = x.Descendants("humidity").Attributes("value").First().Value,
-                                  Speed = x.Descendants("speed").Attributes("value").First().Value,
-                                  Direction = x.Descendants("direction").Attributes("code").First().Value,
-                                  Update = x.Descendants("lastupdate").Attributes("value").First().Value,
+                                  City = x.Descendants("query").First().Value,
+                                  Ip = x.Descendants("type").First().Value,
+                                  Sun = x.Descendants("sunrise").First().Value,
+                                  Set = x.Descendants("sunset").First().Value,
+                                  Tempat = x.Descendants("temp_C").First().Value,
+                                  Cloud = x.Descendants("cloudcover").First().Value,
+                                  Humidity = x.Descendants("humidity").First().Value,
+                                  Speed = x.Descendants("windspeedKmph").First().Value,
+                                  Direction = x.Descendants("winddir16Point").First().Value,
+                                  Update = x.Descendants("date").First().Value,
                               };
 
                 //Get all the values from the linq vairables and set 
                 //them into the WeatherData service values.
                 foreach (var data in weather)
                 {
-                    
+                    //This restful web service also support an ip search.
+                    //this check is to confrim that the user pressed a country.
+                    if (data.Ip == "IP")
+                    {
+                        throw new XmlException();
+                    }
                     wd.Location.Country = data.City;
                     wd.Location.Sunrise = data.Sun;
                     wd.Location.Sunset = data.Set;
@@ -93,15 +99,18 @@ namespace WeatherApp
             }
             catch (XmlException)
             {
+
                 throw new WeatherDataServiceException("Wrong Country");
             }
             catch (WebException)
             {
                 throw new WeatherDataServiceException("There is not internet connection");
             }
+            catch (InvalidOperationException ex)
+            {
+                throw new WeatherDataServiceException(ex.Message);
+            }
         }
-
-
 
 
     }
