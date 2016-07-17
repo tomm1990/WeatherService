@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WeatherApp
-{
-    class WeatherDataServiceException : ApplicationException
-    {
-        public WeatherDataServiceException(String message) : base(message)
-        {
-
+namespace WeatherApp{
+    class WeatherDataServiceException : ApplicationException{
+        public WeatherDataServiceException(String message) : base(message){
+            Console.WriteLine(message);
         }
     }
 }

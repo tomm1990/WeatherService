@@ -8,10 +8,10 @@ namespace WeatherApp{
     class Program{
         static void Main(string[] args){
             IWeatherDataService service = WeatherDataServiceFactory.getWeatherDataService(
-                WeatherDataServiceFactory.OPEN_WEATHER_MAP);
-            WeatherData wd = service.getWeatherData(new Location("Paris, France"));
-            
-            wd.Start();
+                WeatherDataServiceFactory.WORLD_WEATHER_ONLINE);
+            WeatherData weatherData = service.getWeatherData(new Location("London"));
+
+            weatherData.Start();
             Console.ReadKey();
         }
     }

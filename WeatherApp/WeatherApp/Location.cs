@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WeatherApp
-{
-    public class Location
-    {
+namespace WeatherApp{
+    public class Location{
         private String country;
         private String sunrise;
         private String sunset;
@@ -17,8 +15,7 @@ namespace WeatherApp
         private String wind;
         private String temperature;
 
-        public String Country
-        {
+        public String Country{
             get { return country; }
             set { country = value; }
         }
@@ -72,18 +69,10 @@ namespace WeatherApp
         }
        
            
-        public Location() {
-            country = "israel";
-        }
+        public Location() { }
 
-        public Location(String location)
-        {
+        public Location(String location) {
             country = location;
-        }
-
-        
-        
-
-
+        }    
     }
 }
