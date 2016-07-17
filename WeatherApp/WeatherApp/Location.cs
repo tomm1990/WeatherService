@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApp
 {
-    //kjhgkjg
-    class Location
+    public class Location
     {
         private String country;
 
