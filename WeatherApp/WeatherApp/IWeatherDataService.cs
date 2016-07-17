@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace WeatherApp
 {
-
     public interface IWeatherDataService
     {
-        WeatherData GetWeatherData(Location location);
+        WeatherData getWeatherData(Location location);
     }
 }

@@ -11,7 +11,7 @@ namespace WeatherApp
     {
          
 
-        public WeatherData GetWeatherData(Location location)
+        virtual public WeatherData getWeatherData(Location location)
         {
             throw new NotImplementedException();
         }

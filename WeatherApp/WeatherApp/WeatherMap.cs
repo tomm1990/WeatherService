@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApp
 {
+    // singleton WeatherMap object
     public class WeatherMap : WeatherData , IWeatherDataService
     {
         private static WeatherMap weatherMap;
@@ -17,6 +18,12 @@ namespace WeatherApp
             {
                 weatherMap = new WeatherMap();
             }
+            return weatherMap;
+        }
+
+        public override WeatherData getWeatherData(Location location)
+        {
+            WeatherMap weatherMap = new WeatherMap();
             return weatherMap;
         }
 

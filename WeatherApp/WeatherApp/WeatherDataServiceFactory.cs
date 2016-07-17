@@ -11,7 +11,7 @@ namespace WeatherApp
         public static String OPEN_WEATHER_MAP = "OPEN_WEATHER_MAP";
         //public static String WORLD_WEATHER_ONLINE = "WORLD_WEATHER_ONLINE";
 
-        public static WeatherData GetWeatherDataService(String data){
+        public static WeatherData getWeatherDataService(String data){
             WeatherData weatherData = new WeatherData();
             if (data.Equals(OPEN_WEATHER_MAP))
             {

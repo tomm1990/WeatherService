@@ -8,7 +8,32 @@ namespace WeatherApp
 {
     class Location
     {
-        private Country country;
+        private String country;
+
+        public Location() { }
+
+        public Location(String location)
+        {
+            country = location;
+        }
+        public String Country
+        {
+            get
+            {
+                return country;
+            }
+            set
+            {
+                if (value == null)
+                {
+                    Console.WriteLine("Wrong value for country");
+                }
+                else
+                {
+                    country = value;
+                }
+            }
+        }
 
     }
 }
