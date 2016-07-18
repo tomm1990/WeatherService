@@ -8,7 +8,9 @@ namespace WeatherApp{
     public class WeatherData : IWeatherDataService{
 
         private Location location;
-
+        /// <summary> 
+        /// Location Properties
+        /// </summary>
         public Location Location{
             get { return location; }
             set {  location = value; }
@@ -20,6 +22,9 @@ namespace WeatherApp{
             throw new NotImplementedException("\ngetWeatherData() was not implemented\n");
         }
 
+        /// <summary> 
+        /// Print Location details
+        /// </summary>
         public void Start(){
             Console.WriteLine(
                "--- Welcome ---\n\n" +

@@ -8,6 +8,9 @@ using System.Xml;
 using System.Xml.Linq;
 
 namespace WeatherApp{
+    /// <summary> 
+    /// Get XML Object from "Weather Map" 
+    /// </summary>
     public class WeatherMap : WeatherData , IWeatherDataService{
         private const double Kalvin = 273.15;
         private String URLStringXML = "http://api.openweathermap.org/data/2.5/weather?q=";
@@ -24,7 +27,9 @@ namespace WeatherApp{
             XMLFunction(this, location);
             return this;
         }
-
+        /// <summary> 
+        /// XML parser function from "Weather Map" 
+        /// </summary>
         public void XMLFunction(WeatherMap wd, Location location){
             URLStringXML += location.Country + "&mode=xml&appid=" + key;
             WebClient client = new WebClient();
@@ -43,6 +48,9 @@ namespace WeatherApp{
                 wd.Location.Lastupdate = xmlDoc.Descendants("lastupdate").Attributes("value").First().Value;
                 wd.Location.Temperature = Convert.ToString(double.Parse(xmlDoc.Descendants("temperature").Attributes("value").First().Value) - Kalvin);
             }
+            /// <summary> 
+            /// XML parser Exception 
+            /// </summary>
             catch (XmlException) { throw new WeatherDataServiceException("XmlException"); }
         }
     }

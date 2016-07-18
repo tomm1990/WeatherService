@@ -14,6 +14,9 @@ namespace WeatherApp.Tests
     [TestClass()]
     public class WeatherWorldTests
     {
+        /// <summary> 
+        /// "Weather World" Test (Json)
+        /// </summary>
         [TestMethod()]
         public void getWeatherDataTest(){
             Location location = new Location("Paris, France");

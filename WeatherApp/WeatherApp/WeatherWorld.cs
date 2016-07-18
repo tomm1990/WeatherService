@@ -9,6 +9,9 @@ using System.Xml;
 using System.Xml.Linq;
 
 namespace WeatherApp{
+    /// <summary> 
+    /// Get Json Object from "Weather World" 
+    /// </summary>
     public class WeatherWorld : WeatherData, IWeatherDataService{
         private const String key = "7f41c073c67a4bdbac785947161707";
         private String URLStringjson = "http://api.worldweatheronline.com/premium/v1/weather.ashx?key=" + key;
@@ -23,7 +26,9 @@ namespace WeatherApp{
             JsonFunction(this, location);
             return this;
         }
-
+        /// <summary> 
+        /// Json parser function from "Weather World" 
+        /// </summary>
         public void JsonFunction(WeatherWorld wd, Location location){
             URLStringjson +=  "&q=" + location.Country + "&num_of_days=1&tp=24&format=json";
             WebClient client = new WebClient();
@@ -40,7 +45,11 @@ namespace WeatherApp{
                 Location.Temperature = (string)jsonObject["data"]["current_condition"][0]["temp_C"];
                 Location.Humidity = (string)jsonObject["data"]["current_condition"][0]["humidity"];
                 Location.Wind = (string)jsonObject["data"]["current_condition"][0]["windspeedKmph"];
-            } catch (Exception e) { throw new WeatherDataServiceException("Unable to Parse, " + e.Data); }
+            }
+            /// <summary> 
+            /// Json parser Exception 
+            /// </summary>
+            catch (Exception e) { throw new WeatherDataServiceException("Unable to Parse, " + e.Data); }
         }
     }
 }

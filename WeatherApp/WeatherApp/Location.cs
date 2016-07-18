@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace WeatherApp{
+    /// <summary> 
+    /// All Location Properties
+    /// </summary>
     public class Location{
         private String country;
         private String sunrise;

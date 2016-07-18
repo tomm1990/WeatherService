@@ -11,6 +11,9 @@ namespace WeatherApp.Tests
     [TestClass()]
     public class WeatherMapTests
     {
+        /// <summary> 
+        /// "Weather Map" Test (XML)
+        /// </summary>
         [TestMethod()]
         public void getWeatherDataTest()
         {
