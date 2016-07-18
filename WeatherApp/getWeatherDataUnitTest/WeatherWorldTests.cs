@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Xml.Linq;
 using Newtonsoft.Json.Linq;
-/// <summary> 
+/// <remarks>
 /// To Support Json - Install Newtonsoft JSON framework
-/// </summary>
+/// </remarks>
 
 namespace WeatherApp.Tests
 {
