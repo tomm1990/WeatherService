@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Weather Service by tomm1990</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Weather Service</h1>
+        <h2>Shenkar programming languages final project 2016</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/tomm1990/WeatherService/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/tomm1990/WeatherService/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/tomm1990/WeatherService" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h3>
+<a id="welcome-to-weather-service" class="anchor" href="#welcome-to-weather-service" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to Weather Service.</h3>
+
+<h1>
+<a id="shenkar-programming-languages-final-project-2016" class="anchor" href="#shenkar-programming-languages-final-project-2016" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Shenkar programming languages final project 2016</h1>
+
+<p>This standalone application provides an updated information regarding weather status around the globe.
+Once launching you will need to provide the name of city and the method that generates the information.</p>
+
+<h3>
+<a id="implementation" class="anchor" href="#implementation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implementation</h3>
+
+<h2>
+<a id="class-weatherworld-extends-weatherdata-and-implements-iweatherdataservice-interface" class="anchor" href="#class-weatherworld-extends-weatherdata-and-implements-iweatherdataservice-interface" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>class WeatherWorld extends WeatherData and implements IWeatherDataService interface</h2>
+
+<p>implemented with singleton design pattern
+each WeatherWorld object will generate the weather information from the worldweatheronline.com Api's with Json parser function.</p>
+
+<h1>
+<a id="note--you-will-have-to-install-newtonsoftjsonlinq-extension" class="anchor" href="#note--you-will-have-to-install-newtonsoftjsonlinq-extension" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>note : you will have to install Newtonsoft.Json.Linq extension.</h1>
+
+<h2>
+<a id="class-weathermap-extends-weatherdata-and-implements-iweatherdataservice-interface" class="anchor" href="#class-weathermap-extends-weatherdata-and-implements-iweatherdataservice-interface" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>class WeatherMap extends WeatherData and implements IWeatherDataService interface</h2>
+
+<p>implemented with singleton design pattern
+each WeatherMap object will generate the weather information from the openweather.com Api's with XML parser function.</p>
+
+<h2>
+<a id="class-weatherdataservicefactory-implemented-with-factory-design-pattern" class="anchor" href="#class-weatherdataservicefactory-implemented-with-factory-design-pattern" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>class WeatherDataServiceFactory implemented with Factory design pattern</h2>
+
+<hr>
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+
+<h4>
+<a id="tom-goldberg" class="anchor" href="#tom-goldberg" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tom Goldberg</h4>
+
+<h4>
+<a id="gal-shahar" class="anchor" href="#gal-shahar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gal Shahar</h4>
+
+<h4>
+<a id="inbar-takdim" class="anchor" href="#inbar-takdim" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Inbar Takdim</h4>
+
+<h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+
+<p>For further questions please inbox me.</p>
+      </section>
+    </div>
+
+    
+  </body>
+</html>

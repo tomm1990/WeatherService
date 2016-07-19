@@ -1,0 +1,6 @@
+{
+  "name": "Weather Service",
+  "tagline": "Shenkar programming languages final project 2016",
+  "body": "### Welcome to Weather Service.\r\n# Shenkar programming languages final project 2016\r\nThis standalone application provides an updated information regarding weather status around the globe.\r\nOnce launching you will need to provide the name of city and the method that generates the information.\r\n\r\n### Implementation\r\n## class WeatherWorld extends WeatherData and implements IWeatherDataService interface\r\nimplemented with singleton design pattern\r\neach WeatherWorld object will generate the weather information from the worldweatheronline.com Api's with Json parser function.\r\n# note : you will have to install Newtonsoft.Json.Linq extension.\r\n\r\n## class WeatherMap extends WeatherData and implements IWeatherDataService interface\r\nimplemented with singleton design pattern\r\neach WeatherMap object will generate the weather information from the openweather.com Api's with XML parser function.\r\n\r\n## class WeatherDataServiceFactory implemented with Factory design pattern\r\n\r\n***\r\n\r\n### Authors and Contributors\r\n####Tom Goldberg\r\n####Gal Shahar\r\n####Inbar Takdim\r\n\r\n### Support or Contact\r\nFor further questions please inbox me.",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
