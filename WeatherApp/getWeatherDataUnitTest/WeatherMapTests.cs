@@ -1,22 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using WeatherApp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace WeatherApp.Tests
-{
+namespace WeatherApp.Tests{
     [TestClass()]
-    public class WeatherMapTests
-    {
+    public class WeatherMapTests{
         /// <summary> 
         /// "Weather Map" Test (XML)
         /// </summary>
         [TestMethod()]
-        public void getWeatherDataTest()
-        {
+        public void getWeatherDataTest(){
             Location location = new Location("West Jerusalem");
             WeatherMap wd = WeatherMap.Instance();
             WeatherData actual = wd.getWeatherData(location);
