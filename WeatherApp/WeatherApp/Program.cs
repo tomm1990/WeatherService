@@ -7,8 +7,8 @@ namespace WeatherApp{
             /// Get Weather Data for: "location"
             /// </summary>
             IWeatherDataService service = WeatherDataServiceFactory.getWeatherDataService(
-                WeatherDataServiceFactory.OPEN_WEATHER_MAP);
-            WeatherData weatherData = service.getWeatherData(new Location("Israel"));
+                WeatherDataServiceFactory.WORLD_WEATHER_ONLINE);
+            WeatherData weatherData = service.getWeatherData(new Location("London"));
             weatherData.Start();
             Console.ReadKey();
         }
